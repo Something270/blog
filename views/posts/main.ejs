@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= titulo %></h1>
+    <a href="/nuevo">Nuevo post</a>
+    <ul>
+        <% posts.forEach(post => { %>
+            <li>
+                <p><%= post.nombre %> ($<%= post.precio %> )</p>
+                <p>id del post: <%= post.id %> </p>
+            </li>
+            <a href="/editar/<%= post.id %>">Editar</a>
+        <% }) %>
+    </ul>
+</body>
+</html>

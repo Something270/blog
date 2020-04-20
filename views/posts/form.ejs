@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nuevo post</h1>
+    <form action="<%= locals.id ? '/editar' : '/nuevo' %>" method="POST">
+        <input type="hidden" name="id" value="<%= locals.id ? id : '' %>">
+        <label for="">Nombre:</label>
+        <input type="text" name="nombre" value="<%= locals.nombre ? nombre : '' %>">
+        <br>
+        <label for="">Texto:</label>
+        <input type="text" name="texto" value="<%= locals.texto ? texto : '' %>">
+        <br>
+
+        <button>Save</button>
+    </form>
+</body>
+</html>
+
+
+
+
