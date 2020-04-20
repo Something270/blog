@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 
 //Conectarse con la base de datos
-const sequelize = new Sequelize('posts','root','root',{
+const sequelize = new Sequelize('posts2','root','root',{
     host: 'localhost',
     dialect: 'mysql'
 });

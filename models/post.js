@@ -1,4 +1,7 @@
 //Importar librería Sequelize
+const Sequelize = require('sequelize');
+const {sequelize} = require('./../config/db');
+
 const Model = Sequelize.Model;
 class Post extends Model {}
 Post.init({
@@ -20,4 +23,4 @@ Post.init({
 
 
 //Exportar modelo
-module.exports = { post };
+module.exports = { Post };

@@ -11,7 +11,7 @@
     <ul>
         <% posts.forEach(post => { %>
             <li>
-                <p><%= post.nombre %> ($<%= post.precio %> )</p>
+                <p><%= post.nombre %> ($<%= post.texto %> )</p>
                 <p>id del post: <%= post.id %> </p>
             </li>
             <a href="/editar/<%= post.id %>">Editar</a>
