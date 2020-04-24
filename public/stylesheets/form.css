@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(123, 123, 172);
+}
+
+.Post-form{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+h1{
+    font-size: 80px;
+    text-align: center;
+}
+
+.rules{
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    background-color: rgb(218, 236, 229);
+    
+}
+.rules-list{
+    list-style: none;
+    margin-right: 36px;
+    font-weight: bold;
+}

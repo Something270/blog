@@ -7,8 +7,14 @@ var logger = require('morgan');
 const {sequelize} = require('./config/db');
 const {Post} = require('./models/post');
 
+require('./models/foto');
+
+require('./config/associations');
+
+require('./models/comment');
+
 //Actualizar base de datos
-sequelize.sync();
+//sequelize.sync();
 
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');

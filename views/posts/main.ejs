@@ -3,19 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>el Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="\stylesheets\main.css">
 </head>
 <body>
-    <h1><%= titulo %></h1>
-    <a href="/nuevo">Nuevo post</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            <img src="images\logo.png" width="30" height="30" alt="">
+          </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/nuevo">New post</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+<div class="content">
+
+    <h1 class="Main-Title">Home</h1>
+    <!--<a href="/nuevo">Nuevo post</a> -->
+   <div class="Timeline">
+
     <ul>
         <% posts.forEach(post => { %>
             <li>
-                <p><%= post.nombre %> ($<%= post.texto %> )</p>
-                <p>id del post: <%= post.id %> </p>
+              <div class="post">
+                <p class="nombre"><%= post.nombre %>: </p>
+                <p class="text"><%= post.texto %> </p>
+                <div class="img-box">
+                <% post.fotos.forEach(foto => { %>
+                 
+                  <img class="img-main" src="<%= foto.url %> " alt="">
+
+              <% }) %>
+            </div>
+              </div>
+              <%= post.createdAt %>
+              
+              
             </li>
-            <a href="/editar/<%= post.id %>">Editar</a>
+            <a class="btn btn-primary" href="/detalle/<%= post.id %> " role="button">Expand</a>
+            <a class="btn btn-secondary edit" href="/editar/<%= post.id %>" role="button">Edit</a>
+            <button role="button" class="btn btn-danger" onclick="deletePost(<%= post.id %>)">Delete</button>
+
+            <!--<a class="edit" href="/editar/<%= post.id %>">Editar</a> -->
+            <br>
+            <div class="cmt">
+            <form action="/addcomment" method="POST">
+            <div class="form-group">
+              <br>
+              <input type="hidden" name="id" value="<%= post.id %>">
+              <input type="text" name="nombre" class="form-control" id="formGroupExampleInput" placeholder="Name">
+              <br>
+              <input type="text" name="texto" class="form-control" id="formGroupExampleInput" placeholder="Comment">
+              <br>
+              <button role="button" class="btn btn-primary" onclick="">Comment</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="main-cmt">
+
+          <% post.comments.forEach(comment => { %>
+                 
+            <p class="nombre-cmt"><%= comment.nombre %>: </p>
+            <p class="text-cmt"><%= comment.texto %> </p>
+
+        <% }) %>
+        </div>
+
         <% }) %>
     </ul>
+  </div>
+</div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="/javascripts/index.js"></script>
+
 </body>
 </html>

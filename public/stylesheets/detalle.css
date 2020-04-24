@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(123, 123, 172);
+}
+.Main{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.text{
+    font-size: 40px;
+}
+.author{
+    font-size: 70px;
+}
+
+.agfoto{
+    font-weight: bold;
+}
+
+.det-img{
+    height: auto;
+    width: 500px;
+}
