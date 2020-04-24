@@ -53,4 +53,18 @@ padding-right: 20%;
 
   .main-cmt{
       background-color: lightblue;
+      margin-right: 20%;
+      margin-left: 20%;
+      display: flex;
+  }
+  .text-cmt{
+      padding-left: 5px;
+      text-align: left;
+  }
+
+  .nombre-cmt{
+      font-weight: bold;
+      font-size: 25px;
+      text-align: justify;
+      margin-bottom: 1px;
   }
